@@ -1,0 +1,13 @@
+{
+  "name": "linkage-tech-share",
+  "version": "0.1.1",
+  "description": "linkage-tech-share",
+  "main": "app.js",
+  "author": "dongx",
+  "private": true,
+  "license": "BSD",
+  "dependencies": {
+    "express": "3.4.8",
+	"socket.io":"1.4.5"
+  }
+}

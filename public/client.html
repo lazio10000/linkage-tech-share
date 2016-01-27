@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Linkage-Tech-Share</title>
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <link href="bootstrap-theme.min.css" rel="stylesheet">
+  <style type="text/css">
+    body {
+	  padding-top: 50px;
+	  background-color: #eee;
+	}
+	.starter-template {
+	  padding: 40px 15px; 
+	   text-align: center;
+	} 
+  </style>
+</head>
+<body>
+   <div class="container">
+		<div class="starter-template"> 
+		<h1>Linkage-Tech-Share</h1> 
+		  <div id="logon">
+			<form class="form-inline" role="form" onsubmit="return false">
+			<div class="form-group"> 
+				<input type="text" class="form-control" id="logonName" placeholder="请输入你的工号" maxlength="10">
+			</div>
+			<button type="button" id="btnSubmit" class="btn btn-primary">确定</button>
+			</form>
+		  </div>
+		  <div id="lottery">
+			<h1 id="stateMessage"></h1>
+			<p id="messages"></p> 
+		  </div>
+	   </div>
+    </div> <!-- /container -->
+  <script src="jquery-1.10.2.min.js"></script>
+  <script src="jquery.cookie.js"></script>
+  <script src="socket.io-1.0.6.js"></script> 
+  <script src="client.js"></script>
+</body>
+</html>
