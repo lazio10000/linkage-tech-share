@@ -54,7 +54,7 @@ io.on('connection', function (socket) {
     socket.on('lottery', function (data) {
         insertData(data);
         socket.broadcast.emit('lottery', {
-            message: data.toString()
+            winnerList: data;
         });
     });
 

@@ -21,7 +21,8 @@ $(function () {
 	//自动登录
 	var autoLogin = function() {
 		if ($.cookie("UserName") != null) {
-			socket.emit("add user", $.cookie("UserName"));
+			username = $.cookie("UserName");
+			socket.emit("add user", username);
 		}
 	}
 
@@ -62,7 +63,7 @@ $(function () {
 	});
 	
 	socket.on("lottery", function (data) {
-		if ($.inArray(username, data.message.split(",")) > -1) {
+		if ($.inArray(username, data.winnerList) > -1) {
 			$("#stateMessage").html("恭喜,您中奖了");
 			$(".container").css("background", "url(55771332451950460.jpg) no-repeat center").css("color", "white");
 		}
