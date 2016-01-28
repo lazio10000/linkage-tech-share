@@ -38,7 +38,7 @@ $(function () {
 					socket.emit('lottery', lotteryUsername);
 					lotteryState = false;
 					$('#btnLottery').button('reset');
-				}, 3000);
+				}, 2000);
 			}
 		}
 		return false;

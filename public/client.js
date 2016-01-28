@@ -25,7 +25,7 @@ $(function () {
 		}
 	}
 
-    //autoLogin();
+    autoLogin();
 	
 	//登录 
 	$("#btnSubmit").click(function () {
