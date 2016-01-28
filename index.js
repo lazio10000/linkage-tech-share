@@ -12,7 +12,7 @@ var mongoDatabase = process.env.MONGODB_INSTANCE_NAME || 'test';
 var mongoUsername = process.env.MONGODB_USERNAME;
 var mongoPassword = process.env.MONGODB_PASSWORD;
 var mongoUrl = "tcp://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort.toString() + "/" + mongoDatabase;
-
+console.log(mongoUrl);
 
 server.listen(3000, function () {
     console.log('Server listening at port %d', 3000);
