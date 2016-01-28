@@ -1,7 +1,7 @@
 $(function () {
 	var $members = $('#members');
 	var users = new Array();
-	var socket = io('http://localhost:3000');
+	var socket = io('http://linkage-tech-share.t0.daoapp.io:61138');
 	var lotteryState = false;
 	
 	
