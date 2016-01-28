@@ -6,7 +6,7 @@ $(function () {
 	var $lotteryPage = $("#lottery");
 	var username;
     var connected = false;
-    var socket = io("http://linkage-tech-share.t0.daoapp.io:61138");   
+    var socket = io("http://linkage-tech-share.t0.daoapp.io:61086");   
 	
    var login = function () {
         username = $("#logonName").val().trim();
