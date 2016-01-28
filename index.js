@@ -11,9 +11,8 @@ var mongoPort = process.env.MONGODB_PORT_27017_TCP_PORT || 27017;
 var mongoDatabase = process.env.MONGODB_INSTANCE_NAME || 'test';
 var mongoUsername = process.env.MONGODB_USERNAME;
 var mongoPassword = process.env.MONGODB_PASSWORD;
-var mongoUrl = "tcp://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort.toString() + "/" + mongoDatabase;
-console.log(mongoUrl);
-
+var mongoUrl = "mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort.toString() + "/" + mongoDatabase;
+console.log(mongoUrl); 
 server.listen(3000, function () {
     console.log('Server listening at port %d', 3000);
 });
