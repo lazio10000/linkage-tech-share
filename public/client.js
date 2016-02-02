@@ -42,7 +42,7 @@ $(function () {
         }
     }
 
-    if (getQueryStringValue('autologin') != null) { 
+    if (getQueryStringValue('autologin') == null) { 
         autoLogin();
     }
 
