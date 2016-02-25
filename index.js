@@ -41,18 +41,22 @@ var insertData = function (winnerList) {
     }); 
 }
 
-io.on('connection', function (socket) {
+io.on('connection', function (socket) { 
     var addedUser = false;
 
-    socket.on('', function (data) {
-        socket.broadcast.emit('new message', {
-            username: socket.username,
-            message: data
-        });
-    });
+    	socket.on('reset', function () {  
+		usernames = {};
+        numUsers = 0;
+	});
+	
+	socket.on('reload', function (fn) {  
+		fn(usernames);
+	});
 
     socket.on('lottery', function (data) {
         insertData(data);
+	usernames = {};
+        numUsers = 0;
         socket.broadcast.emit('lottery', {
             winnerList: data
         });

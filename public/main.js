@@ -1,11 +1,22 @@
 $(function () {
 	var $members = $('#members');
 	var users = new Array();
-	var socket = io('http://linkage-tech-share.t0.daoapp.io:61086');
+	var socket = io();
 	var lotteryState = false;
 	
-	
-	$('.btn-lg').click(function () {
+	$('#btnReset').click(function(){
+		socket.emit('reload',function(data){ 
+			console.log(data);
+			users = new Array();
+			$members.empty();
+		    for(var item in data){
+				users.push(data[item]);
+				$members.append('<span class="label label-default" data-index="' + (users.length - 1) + '">' + item + '</span>        ');
+			}
+		}); 
+	});
+	 
+	$('.btnLottery').click(function () {
 		if (lotteryState) {
 			return false;
 		}
@@ -38,7 +49,7 @@ $(function () {
 					socket.emit('lottery', lotteryUsername);
 					lotteryState = false;
 					$('#btnLottery').button('reset');
-				}, 2000);
+				}, 3000);
 			}
 		}
 		return false;
@@ -60,5 +71,6 @@ $(function () {
 				users.splice(userid, 1);
 			}
 		}
-	});
+	}); 
+	 
 });

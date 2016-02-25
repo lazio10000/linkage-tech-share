@@ -6,7 +6,7 @@ $(function () {
     var $lotteryPage = $("#lottery");
     var username;
     var connected = false;
-    var socket = io("http://linkage-tech-share.t0.daoapp.io:61086");
+    var socket = io();
 
     var getQueryStringValue = function (keyName) {
         var searchStr = location.search.substr(1);
@@ -67,17 +67,20 @@ $(function () {
         $("#stateMessage").html("等待开奖");
     });
 
+	//登录失败
     socket.on("loginError", function (data) {
         connected = false;
         $("#stateMessage").html("换个称呼吧，朋友");
     });
 
+	
     socket.on("user joined", function (data) {
-        $('#messages').html("共有" + data.numUsers + "参与PK");
+        $('#messages').html("共有" + data.numUsers + "参与抽签");
     });
 
     socket.on("user left", function (data) {
-        $("#messages").html("共有" + data.numUsers + "参与PK");
+		console.log(data);
+        $("#messages").html("共有" + data.numUsers + "参与抽签");
     });
 
     socket.on("lottery", function (data) {
@@ -89,5 +92,11 @@ $(function () {
             $("#stateMessage").html("原来没中奖我也可以这么开心");
         }
     });
-
+	
+	window.setInterval(function(){
+		if(!socket.connected){
+			$("#stateMessage").html("断线了，刷新吧");
+		}
+	}, 10000); 
+	 
 });
